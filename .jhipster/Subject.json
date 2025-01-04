@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103181911",
+  "entityTableName": "subject",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "64",
+      "fieldValidateRulesMinlength": "1"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Subject",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "subjectCycle",
+      "otherEntityRelationshipName": "subject",
+      "relationshipName": "subjectCycle",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

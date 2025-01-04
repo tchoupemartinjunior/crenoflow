@@ -1,0 +1,25 @@
+{
+  "crenoFlowApp": {
+    "photoPerson": {
+      "home": {
+        "title": "PhotoPeople",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Photo Person",
+        "createOrEditLabel": "Créer ou éditer un Photo Person",
+        "notFound": "Aucun Photo Person trouvé"
+      },
+      "created": "Un nouveau Photo Person a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Photo Person avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Photo Person avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Photo Person {{ id }} ?"
+      },
+      "detail": {
+        "title": "Photo Person"
+      },
+      "id": "ID",
+      "photo": "Photo",
+      "person": "Person"
+    }
+  }
+}

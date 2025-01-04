@@ -1,0 +1,17 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103181711",
+  "entityTableName": "education_level",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "EducationLevel",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

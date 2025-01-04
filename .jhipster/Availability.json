@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103182211",
+  "entityTableName": "availability",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+    },
+    {
+      "fieldName": "format",
+      "fieldType": "CourseFormat",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "IN_PERSON,ONLINE"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "SlotStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "AVAILABLE,UNAVAILABLE,PENDING"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Availability",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

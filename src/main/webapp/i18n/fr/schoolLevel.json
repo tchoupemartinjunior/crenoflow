@@ -1,0 +1,25 @@
+{
+  "crenoFlowApp": {
+    "schoolLevel": {
+      "home": {
+        "title": "SchoolLevels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau School Level",
+        "createOrEditLabel": "Créer ou éditer un School Level",
+        "notFound": "Aucun School Level trouvé"
+      },
+      "created": "Un nouveau School Level a été créé avec l'identifiant {{ param }}",
+      "updated": "Le School Level avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le School Level avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le School Level {{ id }} ?"
+      },
+      "detail": {
+        "title": "School Level"
+      },
+      "id": "ID",
+      "label": "Label",
+      "cycle": "Cycle"
+    }
+  }
+}

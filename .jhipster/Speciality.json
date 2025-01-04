@@ -1,0 +1,17 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103181611",
+  "entityTableName": "speciality",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Speciality",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

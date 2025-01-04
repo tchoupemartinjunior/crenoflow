@@ -1,0 +1,117 @@
+entity Person {
+    firstName String,
+    lastName String,
+    email String,
+    phoneNumber String,
+    address String,
+    city String,
+    postalCode Long,
+    birthday LocalDate,
+}
+
+entity Teacher {
+    introduction String
+}
+
+entity Profession {
+    label String
+}
+
+entity Speciality {
+    label String
+}
+
+entity EducationLevel {
+    label String
+}
+
+entity PhotoPerson {
+    photo Blob
+}
+
+entity Subject {
+    label String required minlength(1) maxlength(64)
+}
+
+entity SchoolLevel {
+    label String required
+}
+
+entity Cycle {
+    label String
+}
+
+entity Availability {
+    date LocalDate required,
+    startTime String required pattern(/^(?:[01]\d|2[0-3]):[0-5]\d$/),
+    endTime String required pattern(/^(?:[01]\d|2[0-3]):[0-5]\d$/),
+    format CourseFormat required,
+    comment String,
+    videoLink String,
+    address String,
+    status SlotStatus required
+    creationDate Instant required
+}
+
+entity SubjectCycle {
+}
+
+entity Course {
+    teachersComment String
+}
+
+entity Booking {
+    status BookingStatus required
+    bookingDate Instant
+    modificationDate Instant
+}
+
+entity CourseLocation {
+    address String
+    name String required maxlength(64)
+}
+
+enum SlotStatus {
+    AVAILABLE, UNAVAILABLE, PENDING
+}
+
+enum BookingStatus {
+    CANCELLED, CONFIRMED, PENDING
+}
+
+enum CourseFormat {
+    IN_PERSON, ONLINE
+}
+
+relationship OneToOne {
+    Teacher{person(lastName)} to Person
+    Person{user} to User with builtInEntity
+    PhotoPerson{person} to Person
+}
+
+relationship ManyToMany {
+    Teacher to SubjectCycle{teacher}
+    Subject to SubjectCycle{subject(label)}
+    Cycle to SubjectCycle{cycle(label)}
+}
+
+relationship ManyToOne {
+    Teacher{educationLevel(label)} to EducationLevel
+    Teacher{profession(label)} to Profession
+    Teacher{speciality(label)} to Speciality
+    Person{schoolLevel(label)} to SchoolLevel
+    Course{subject(label)} to Subject
+    Course{cycle(label)} to Cycle
+    Course{location} to CourseLocation
+    Course{teacher} to Teacher
+    Course{availability} to Availability
+    Booking{course} to Course
+    Booking{parent} to Person
+    Booking{student} to Person
+    SchoolLevel{cycle(label)} to Cycle
+    CourseLocation{manager} to Person
+}
+
+paginate * with pagination except Cycle, CourseLocation
+filter * except Cycle, CourseLocation
+service * with serviceClass except Cycle, CourseLocation

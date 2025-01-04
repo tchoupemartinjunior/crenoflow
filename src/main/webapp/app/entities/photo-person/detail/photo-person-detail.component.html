@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="photoPerson">
+      <h2 data-cy="photoPersonDetailsHeading"><span jhiTranslate="crenoFlowApp.photoPerson.detail.title">Photo Person</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ photoPerson.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.photoPerson.photo">Photo</span></dt>
+        <dd>
+          <div *ngIf="photoPerson.photo">
+            <a (click)="openFile(photoPerson.photo, photoPerson.photoContentType)" jhiTranslate="entity.action.open">Ouvrir</a>
+            {{ photoPerson.photoContentType }}, {{ byteSize(photoPerson.photo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.photoPerson.person">Person</span></dt>
+        <dd>
+          <div *ngIf="photoPerson.person">
+            <a [routerLink]="['/person', photoPerson.person.id, 'view']">{{ photoPerson.person.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/photo-person', photoPerson.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

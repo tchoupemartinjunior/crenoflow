@@ -1,0 +1,25 @@
+{
+  "crenoFlowApp": {
+    "schoolLevel": {
+      "home": {
+        "title": "School Levels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new School Level",
+        "createOrEditLabel": "Create or edit a School Level",
+        "notFound": "No School Levels found"
+      },
+      "created": "A new School Level is created with identifier {{ param }}",
+      "updated": "A School Level is updated with identifier {{ param }}",
+      "deleted": "A School Level is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete School Level {{ id }}?"
+      },
+      "detail": {
+        "title": "School Level"
+      },
+      "id": "ID",
+      "label": "Label",
+      "cycle": "Cycle"
+    }
+  }
+}

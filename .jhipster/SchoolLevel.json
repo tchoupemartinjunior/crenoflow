@@ -1,0 +1,26 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103182011",
+  "entityTableName": "school_level",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "SchoolLevel",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "label",
+      "otherEntityName": "cycle",
+      "relationshipName": "cycle",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Cycle.
+    -->
+    <changeSet id="20250103182111-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cycle_id"
+                                 baseTableName="rel_cycle__subject_cycle"
+                                 constraintName="fk_rel_cycle__subject_cycle__cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cycle"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="subject_cycle_id"
+                                 baseTableName="rel_cycle__subject_cycle"
+                                 constraintName="fk_rel_cycle__subject_cycle__subject_cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject_cycle"
+                                 />
+    </changeSet>
+</databaseChangeLog>

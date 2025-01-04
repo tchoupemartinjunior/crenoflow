@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103181411",
+  "entityTableName": "teacher",
+  "fields": [
+    {
+      "fieldName": "introduction",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Teacher",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "lastName",
+      "otherEntityName": "person",
+      "relationshipName": "person",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "label",
+      "otherEntityName": "educationLevel",
+      "relationshipName": "educationLevel",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "label",
+      "otherEntityName": "profession",
+      "relationshipName": "profession",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "label",
+      "otherEntityName": "speciality",
+      "relationshipName": "speciality",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "subjectCycle",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "subjectCycle",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

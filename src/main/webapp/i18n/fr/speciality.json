@@ -1,0 +1,24 @@
+{
+  "crenoFlowApp": {
+    "speciality": {
+      "home": {
+        "title": "Specialities",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Speciality",
+        "createOrEditLabel": "Créer ou éditer un Speciality",
+        "notFound": "Aucun Speciality trouvé"
+      },
+      "created": "Un nouveau Speciality a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Speciality avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Speciality avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Speciality {{ id }} ?"
+      },
+      "detail": {
+        "title": "Speciality"
+      },
+      "id": "ID",
+      "label": "Label"
+    }
+  }
+}

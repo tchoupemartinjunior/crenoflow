@@ -1,0 +1,26 @@
+{
+  "crenoFlowApp": {
+    "subjectCycle": {
+      "home": {
+        "title": "SubjectCycles",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Subject Cycle",
+        "createOrEditLabel": "Créer ou éditer un Subject Cycle",
+        "notFound": "Aucun Subject Cycle trouvé"
+      },
+      "created": "Un nouveau Subject Cycle a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Subject Cycle avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Subject Cycle avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Subject Cycle {{ id }} ?"
+      },
+      "detail": {
+        "title": "Subject Cycle"
+      },
+      "id": "ID",
+      "teacher": "Teacher",
+      "subject": "Subject",
+      "cycle": "Cycle"
+    }
+  }
+}

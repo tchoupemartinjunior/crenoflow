@@ -1,0 +1,26 @@
+{
+  "crenoFlowApp": {
+    "courseLocation": {
+      "home": {
+        "title": "CourseLocations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Course Location",
+        "createOrEditLabel": "Créer ou éditer un Course Location",
+        "notFound": "Aucun Course Location trouvé"
+      },
+      "created": "Un nouveau Course Location a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Course Location avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Course Location avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Course Location {{ id }} ?"
+      },
+      "detail": {
+        "title": "Course Location"
+      },
+      "id": "ID",
+      "address": "Address",
+      "name": "Name",
+      "manager": "Manager"
+    }
+  }
+}

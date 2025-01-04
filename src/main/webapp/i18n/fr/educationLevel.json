@@ -1,0 +1,24 @@
+{
+  "crenoFlowApp": {
+    "educationLevel": {
+      "home": {
+        "title": "EducationLevels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Education Level",
+        "createOrEditLabel": "Créer ou éditer un Education Level",
+        "notFound": "Aucun Education Level trouvé"
+      },
+      "created": "Un nouveau Education Level a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Education Level avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Education Level avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Education Level {{ id }} ?"
+      },
+      "detail": {
+        "title": "Education Level"
+      },
+      "id": "ID",
+      "label": "Label"
+    }
+  }
+}

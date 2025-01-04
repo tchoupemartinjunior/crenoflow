@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103182611",
+  "entityTableName": "course_location",
+  "fields": [
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "64"
+    }
+  ],
+  "name": "CourseLocation",
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "relationshipName": "manager",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

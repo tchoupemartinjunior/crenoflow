@@ -7,7 +7,21 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "person": "Person",
+        "teacher": "Teacher",
+        "profession": "Profession",
+        "speciality": "Speciality",
+        "educationLevel": "Education Level",
+        "photoPerson": "Photo Person",
+        "subject": "Subject",
+        "schoolLevel": "School Level",
+        "cycle": "Cycle",
+        "availability": "Availability",
+        "subjectCycle": "Subject Cycle",
+        "course": "Course",
+        "booking": "Booking",
+        "courseLocation": "Course Location"
       },
       "account": {
         "main": "Compte",

@@ -1,0 +1,25 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103181811",
+  "entityTableName": "photo_person",
+  "fields": [
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "PhotoPerson",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "relationshipName": "person",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

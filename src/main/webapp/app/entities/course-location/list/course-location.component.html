@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="CourseLocationHeading">
+    <span jhiTranslate="crenoFlowApp.courseLocation.home.title">CourseLocations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="crenoFlowApp.courseLocation.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-course-location"
+        [routerLink]="['/course-location/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="crenoFlowApp.courseLocation.home.createLabel">Créer un nouveau Course Location</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="courseLocations?.length === 0">
+    <span jhiTranslate="crenoFlowApp.courseLocation.home.notFound">Aucun Course Location trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="courseLocations && courseLocations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <div class="d-flex">
+              <span jhiTranslate="crenoFlowApp.courseLocation.address">Address</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="crenoFlowApp.courseLocation.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="manager.id">
+            <div class="d-flex">
+              <span jhiTranslate="crenoFlowApp.courseLocation.manager">Manager</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let courseLocation of courseLocations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/course-location', courseLocation.id, 'view']">{{ courseLocation.id }}</a>
+          </td>
+          <td>{{ courseLocation.address }}</td>
+          <td>{{ courseLocation.name }}</td>
+          <td>
+            <div *ngIf="courseLocation.manager">
+              <a [routerLink]="['/person', courseLocation.manager.id, 'view']">{{ courseLocation.manager.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/course-location', courseLocation.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </a>
+
+              <a [routerLink]="['/course-location', courseLocation.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </a>
+
+              <button type="submit" (click)="delete(courseLocation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

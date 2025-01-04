@@ -1,0 +1,117 @@
+<div>
+  <h2 id="page-heading" data-cy="PhotoPersonHeading">
+    <span jhiTranslate="crenoFlowApp.photoPerson.home.title">PhotoPeople</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="crenoFlowApp.photoPerson.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-photo-person"
+        [routerLink]="['/photo-person/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="crenoFlowApp.photoPerson.home.createLabel">Créer un nouveau Photo Person</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="photoPeople?.length === 0">
+    <span jhiTranslate="crenoFlowApp.photoPerson.home.notFound">Aucun Photo Person trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="photoPeople && photoPeople.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="photo">
+            <div class="d-flex">
+              <span jhiTranslate="crenoFlowApp.photoPerson.photo">Photo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="person.id">
+            <div class="d-flex">
+              <span jhiTranslate="crenoFlowApp.photoPerson.person">Person</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let photoPerson of photoPeople; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/photo-person', photoPerson.id, 'view']">{{ photoPerson.id }}</a>
+          </td>
+          <td>
+            <a
+              *ngIf="photoPerson.photo"
+              (click)="openFile(photoPerson.photo, photoPerson.photoContentType)"
+              jhiTranslate="entity.action.open"
+              >Ouvrir</a
+            >
+            <span *ngIf="photoPerson.photo">{{ photoPerson.photoContentType }}, {{ byteSize(photoPerson.photo) }}</span>
+          </td>
+          <td>
+            <div *ngIf="photoPerson.person">
+              <a [routerLink]="['/person', photoPerson.person.id, 'view']">{{ photoPerson.person.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/photo-person', photoPerson.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </a>
+
+              <a [routerLink]="['/photo-person', photoPerson.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </a>
+
+              <button type="submit" (click)="delete(photoPerson)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="photoPeople && photoPeople.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

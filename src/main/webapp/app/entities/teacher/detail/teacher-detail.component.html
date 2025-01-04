@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="teacher">
+      <h2 data-cy="teacherDetailsHeading"><span jhiTranslate="crenoFlowApp.teacher.detail.title">Teacher</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ teacher.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.teacher.introduction">Introduction</span></dt>
+        <dd>
+          <span>{{ teacher.introduction }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.teacher.person">Person</span></dt>
+        <dd>
+          <div *ngIf="teacher.person">
+            <a [routerLink]="['/person', teacher.person.id, 'view']">{{ teacher.person.lastName }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.teacher.educationLevel">Education Level</span></dt>
+        <dd>
+          <div *ngIf="teacher.educationLevel">
+            <a [routerLink]="['/education-level', teacher.educationLevel.id, 'view']">{{ teacher.educationLevel.label }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.teacher.profession">Profession</span></dt>
+        <dd>
+          <div *ngIf="teacher.profession">
+            <a [routerLink]="['/profession', teacher.profession.id, 'view']">{{ teacher.profession.label }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.teacher.speciality">Speciality</span></dt>
+        <dd>
+          <div *ngIf="teacher.speciality">
+            <a [routerLink]="['/speciality', teacher.speciality.id, 'view']">{{ teacher.speciality.label }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.teacher.subjectCycle">Subject Cycle</span></dt>
+        <dd>
+          <span *ngFor="let subjectCycle of teacher.subjectCycles; let last = last">
+            <a [routerLink]="['/subject-cycle', subjectCycle.id, 'view']">{{ subjectCycle.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/teacher', teacher.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

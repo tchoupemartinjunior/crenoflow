@@ -1,0 +1,32 @@
+{
+  "crenoFlowApp": {
+    "availability": {
+      "home": {
+        "title": "Availabilities",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Availability",
+        "createOrEditLabel": "Créer ou éditer un Availability",
+        "notFound": "Aucun Availability trouvé"
+      },
+      "created": "Un nouveau Availability a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Availability avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Availability avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Availability {{ id }} ?"
+      },
+      "detail": {
+        "title": "Availability"
+      },
+      "id": "ID",
+      "date": "Date",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "format": "Format",
+      "comment": "Comment",
+      "videoLink": "Video Link",
+      "address": "Address",
+      "status": "Status",
+      "creationDate": "Creation Date"
+    }
+  }
+}

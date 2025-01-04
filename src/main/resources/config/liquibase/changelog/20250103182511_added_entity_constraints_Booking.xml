@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Booking.
+    -->
+    <changeSet id="20250103182511-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="course_id"
+                                 baseTableName="booking"
+                                 constraintName="fk_booking__course_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="course"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="booking"
+                                 constraintName="fk_booking__parent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="booking"
+                                 constraintName="fk_booking__student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"
+                                 />
+    </changeSet>
+</databaseChangeLog>

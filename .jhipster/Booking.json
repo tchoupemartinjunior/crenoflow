@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103182511",
+  "entityTableName": "booking",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "BookingStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CANCELLED,CONFIRMED,PENDING"
+    },
+    {
+      "fieldName": "bookingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modificationDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Booking",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "course",
+      "relationshipName": "course",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "person",
+      "relationshipName": "parent",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "person",
+      "relationshipName": "student",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

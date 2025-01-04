@@ -1,0 +1,10 @@
+{
+  "crenoFlowApp": {
+    "BookingStatus": {
+      "null": "",
+      "CANCELLED": "CANCELLED",
+      "CONFIRMED": "CONFIRMED",
+      "PENDING": "PENDING"
+    }
+  }
+}

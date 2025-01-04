@@ -1,0 +1,126 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-booking-heading" data-cy="BookingCreateUpdateHeading" jhiTranslate="crenoFlowApp.booking.home.createOrEditLabel">
+        Créer ou éditer un Booking
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.booking.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'crenoFlowApp.BookingStatus.null' | translate }}</option>
+            <option *ngFor="let bookingStatus of bookingStatusValues" [value]="bookingStatus">
+              {{ 'crenoFlowApp.BookingStatus.' + bookingStatus | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required"
+              >Ce champ est obligatoire.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.booking.bookingDate" for="field_bookingDate">Booking Date</label>
+          <div class="d-flex">
+            <input
+              id="field_bookingDate"
+              data-cy="bookingDate"
+              type="datetime-local"
+              class="form-control"
+              name="bookingDate"
+              formControlName="bookingDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.booking.modificationDate" for="field_modificationDate"
+            >Modification Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_modificationDate"
+              data-cy="modificationDate"
+              type="datetime-local"
+              class="form-control"
+              name="modificationDate"
+              formControlName="modificationDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.booking.course" for="field_course">Course</label>
+          <select
+            class="form-control"
+            id="field_course"
+            data-cy="course"
+            name="course"
+            formControlName="course"
+            [compareWith]="compareCourse"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="courseOption" *ngFor="let courseOption of coursesSharedCollection">{{ courseOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.booking.parent" for="field_parent">Parent</label>
+          <select
+            class="form-control"
+            id="field_parent"
+            data-cy="parent"
+            name="parent"
+            formControlName="parent"
+            [compareWith]="comparePerson"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="personOption" *ngFor="let personOption of peopleSharedCollection">{{ personOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.booking.student" for="field_student">Student</label>
+          <select
+            class="form-control"
+            id="field_student"
+            data-cy="student"
+            name="student"
+            formControlName="student"
+            [compareWith]="comparePerson"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="personOption" *ngFor="let personOption of peopleSharedCollection">{{ personOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

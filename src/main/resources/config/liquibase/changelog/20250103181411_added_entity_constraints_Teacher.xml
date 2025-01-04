@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Teacher.
+    -->
+    <changeSet id="20250103181411-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="person_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher__person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="education_level_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher__education_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="education_level"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="profession_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher__profession_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="profession"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="speciality_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher__speciality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="speciality"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="teacher_id"
+                                 baseTableName="rel_teacher__subject_cycle"
+                                 constraintName="fk_rel_teacher__subject_cycle__teacher_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="teacher"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="subject_cycle_id"
+                                 baseTableName="rel_teacher__subject_cycle"
+                                 constraintName="fk_rel_teacher__subject_cycle__subject_cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject_cycle"
+                                 />
+    </changeSet>
+</databaseChangeLog>

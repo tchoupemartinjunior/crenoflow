@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="availability">
+      <h2 data-cy="availabilityDetailsHeading"><span jhiTranslate="crenoFlowApp.availability.detail.title">Availability</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ availability.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.date">Date</span></dt>
+        <dd>
+          <span>{{ availability.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.startTime">Start Time</span></dt>
+        <dd>
+          <span>{{ availability.startTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.endTime">End Time</span></dt>
+        <dd>
+          <span>{{ availability.endTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.format">Format</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'crenoFlowApp.CourseFormat.' + availability.format }}">{{ availability.format }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.comment">Comment</span></dt>
+        <dd>
+          <span>{{ availability.comment }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.videoLink">Video Link</span></dt>
+        <dd>
+          <span>{{ availability.videoLink }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.address">Address</span></dt>
+        <dd>
+          <span>{{ availability.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'crenoFlowApp.SlotStatus.' + availability.status }}">{{ availability.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.availability.creationDate">Creation Date</span></dt>
+        <dd>
+          <span>{{ availability.creationDate | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/availability', availability.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

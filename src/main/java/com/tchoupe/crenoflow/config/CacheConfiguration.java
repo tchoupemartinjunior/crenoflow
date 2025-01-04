@@ -48,6 +48,26 @@ public class CacheConfiguration {
             createCache(cm, com.tchoupe.crenoflow.domain.User.class.getName());
             createCache(cm, com.tchoupe.crenoflow.domain.Authority.class.getName());
             createCache(cm, com.tchoupe.crenoflow.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.tchoupe.crenoflow.domain.Person.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Teacher.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Teacher.class.getName() + ".subjectCycles");
+            createCache(cm, com.tchoupe.crenoflow.domain.Profession.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Speciality.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.EducationLevel.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.PhotoPerson.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Subject.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Subject.class.getName() + ".subjectCycles");
+            createCache(cm, com.tchoupe.crenoflow.domain.SchoolLevel.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Cycle.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Cycle.class.getName() + ".subjectCycles");
+            createCache(cm, com.tchoupe.crenoflow.domain.Availability.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.SubjectCycle.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.SubjectCycle.class.getName() + ".teachers");
+            createCache(cm, com.tchoupe.crenoflow.domain.SubjectCycle.class.getName() + ".subjects");
+            createCache(cm, com.tchoupe.crenoflow.domain.SubjectCycle.class.getName() + ".cycles");
+            createCache(cm, com.tchoupe.crenoflow.domain.Course.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.Booking.class.getName());
+            createCache(cm, com.tchoupe.crenoflow.domain.CourseLocation.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

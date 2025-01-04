@@ -1,0 +1,10 @@
+{
+  "crenoFlowApp": {
+    "SlotStatus": {
+      "null": "",
+      "AVAILABLE": "AVAILABLE",
+      "UNAVAILABLE": "UNAVAILABLE",
+      "PENDING": "PENDING"
+    }
+  }
+}

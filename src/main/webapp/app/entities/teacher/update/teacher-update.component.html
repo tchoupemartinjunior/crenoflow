@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-teacher-heading" data-cy="TeacherCreateUpdateHeading" jhiTranslate="crenoFlowApp.teacher.home.createOrEditLabel">
+        Créer ou éditer un Teacher
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.teacher.introduction" for="field_introduction">Introduction</label>
+          <input
+            type="text"
+            class="form-control"
+            name="introduction"
+            id="field_introduction"
+            data-cy="introduction"
+            formControlName="introduction"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.teacher.person" for="field_person">Person</label>
+          <select
+            class="form-control"
+            id="field_person"
+            data-cy="person"
+            name="person"
+            formControlName="person"
+            [compareWith]="comparePerson"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="personOption" *ngFor="let personOption of peopleCollection">{{ personOption.lastName }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.teacher.educationLevel" for="field_educationLevel">Education Level</label>
+          <select
+            class="form-control"
+            id="field_educationLevel"
+            data-cy="educationLevel"
+            name="educationLevel"
+            formControlName="educationLevel"
+            [compareWith]="compareEducationLevel"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="educationLevelOption" *ngFor="let educationLevelOption of educationLevelsSharedCollection">
+              {{ educationLevelOption.label }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.teacher.profession" for="field_profession">Profession</label>
+          <select
+            class="form-control"
+            id="field_profession"
+            data-cy="profession"
+            name="profession"
+            formControlName="profession"
+            [compareWith]="compareProfession"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="professionOption" *ngFor="let professionOption of professionsSharedCollection">
+              {{ professionOption.label }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="crenoFlowApp.teacher.speciality" for="field_speciality">Speciality</label>
+          <select
+            class="form-control"
+            id="field_speciality"
+            data-cy="speciality"
+            name="speciality"
+            formControlName="speciality"
+            [compareWith]="compareSpeciality"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="specialityOption" *ngFor="let specialityOption of specialitiesSharedCollection">
+              {{ specialityOption.label }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="crenoFlowApp.teacher.subjectCycle" for="field_subjectCycles">Subject Cycle</label>
+          <select
+            class="form-control"
+            id="field_subjectCycles"
+            data-cy="subjectCycle"
+            multiple
+            name="subjectCycles"
+            formControlName="subjectCycles"
+            [compareWith]="compareSubjectCycle"
+          >
+            <option [ngValue]="subjectCycleOption" *ngFor="let subjectCycleOption of subjectCyclesSharedCollection">
+              {{ subjectCycleOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103182311",
+  "entityTableName": "subject_cycle",
+  "fields": [],
+  "jpaMetamodelFiltering": true,
+  "name": "SubjectCycle",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "teacher",
+      "relationshipName": "teacher",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "label",
+      "otherEntityName": "subject",
+      "relationshipName": "subject",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "label",
+      "otherEntityName": "cycle",
+      "relationshipName": "cycle",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity SchoolLevel.
+    -->
+    <changeSet id="20250103182011-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cycle_id"
+                                 baseTableName="school_level"
+                                 constraintName="fk_school_level__cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cycle"
+                                 />
+    </changeSet>
+</databaseChangeLog>

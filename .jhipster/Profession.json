@@ -1,0 +1,17 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103181511",
+  "entityTableName": "profession",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Profession",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

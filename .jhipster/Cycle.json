@@ -1,0 +1,22 @@
+{
+  "applications": "*",
+  "changelogDate": "20250103182111",
+  "entityTableName": "cycle",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Cycle",
+  "relationships": [
+    {
+      "otherEntityName": "subjectCycle",
+      "otherEntityRelationshipName": "cycle",
+      "relationshipName": "subjectCycle",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

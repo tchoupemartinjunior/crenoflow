@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="person">
+      <h2 data-cy="personDetailsHeading"><span jhiTranslate="crenoFlowApp.person.detail.title">Person</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ person.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ person.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ person.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.email">Email</span></dt>
+        <dd>
+          <span>{{ person.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ person.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.address">Address</span></dt>
+        <dd>
+          <span>{{ person.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.city">City</span></dt>
+        <dd>
+          <span>{{ person.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ person.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.birthday">Birthday</span></dt>
+        <dd>
+          <span>{{ person.birthday | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.user">User</span></dt>
+        <dd>
+          <span>{{ person.user?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.person.schoolLevel">School Level</span></dt>
+        <dd>
+          <div *ngIf="person.schoolLevel">
+            <a [routerLink]="['/school-level', person.schoolLevel.id, 'view']">{{ person.schoolLevel.label }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

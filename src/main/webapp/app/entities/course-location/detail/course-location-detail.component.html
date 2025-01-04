@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="courseLocation">
+      <h2 data-cy="courseLocationDetailsHeading"><span jhiTranslate="crenoFlowApp.courseLocation.detail.title">Course Location</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ courseLocation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.courseLocation.address">Address</span></dt>
+        <dd>
+          <span>{{ courseLocation.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.courseLocation.name">Name</span></dt>
+        <dd>
+          <span>{{ courseLocation.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="crenoFlowApp.courseLocation.manager">Manager</span></dt>
+        <dd>
+          <div *ngIf="courseLocation.manager">
+            <a [routerLink]="['/person', courseLocation.manager.id, 'view']">{{ courseLocation.manager.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/course-location', courseLocation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>
