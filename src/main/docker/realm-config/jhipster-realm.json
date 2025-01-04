@@ -1,8 +1,8 @@
 {
   "id": "jhipster",
   "realm": "jhipster",
-  "displayName": "JHipster",
-  "displayNameHtml": "<div class=\"kc-logo-text\"><span>JHipster</span></div>",
+  "displayName": "CrenoFlow",
+  "displayNameHtml": "<div class=\"kc-logo-text\"><span>CrenoFlow</span></div>",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
