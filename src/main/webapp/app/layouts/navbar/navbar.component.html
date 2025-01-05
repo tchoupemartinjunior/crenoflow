@@ -18,10 +18,10 @@
       <fa-icon icon="bars"></fa-icon>
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
-      <button class="btn btn-primary">
+      <a class="btn btn-primary" routerLink="/teacher/registration">
         <fa-icon icon="plus"></fa-icon>
         <span>Devenir Enseignant</span>
-      </button>
+      </a>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/" (click)="collapseNavbar()">

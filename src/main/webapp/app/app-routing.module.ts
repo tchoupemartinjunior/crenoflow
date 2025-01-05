@@ -32,6 +32,14 @@ import NavbarComponent from './layouts/navbar/navbar.component';
           loadChildren: () => import('./admin/admin-routing.module'),
         },
         {
+          path: 'teacher',
+          data: {
+            authorities: [Authority.USER, Authority.ADMIN],
+          },
+          canActivate: [UserRouteAccessService],
+          loadChildren: () => import('./teacher/teacher-routing.module').then(m => m.TeacherRoutingModule),
+        },
+        {
           path: '',
           loadChildren: () => import(`./entities/entity-routing.module`).then(({ EntityRoutingModule }) => EntityRoutingModule),
         },
