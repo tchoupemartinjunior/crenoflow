@@ -10,12 +10,23 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertErrorComponent } from './alert/alert-error.component';
 import { CustomStepperComponent } from './custom-stepper/custom-stepper.component';
 import { CdkStepper } from '@angular/cdk/stepper';
+import { TeacherContactFormComponent } from './teacherForms/teacher-contact-form/teacher-contact-form.component';
+import { TeacherProfilFormComponent } from './teacherForms/teacher-profil-form/teacher-profil-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /**
  * Application wide Module
  */
 @NgModule({
-  imports: [AlertComponent, AlertErrorComponent, FindLanguageFromKeyPipe, TranslateDirective, CommonModule],
+  imports: [
+    AlertComponent,
+    AlertErrorComponent,
+    FindLanguageFromKeyPipe,
+    TranslateDirective,
+    CommonModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
   exports: [
     CommonModule,
     NgbModule,
@@ -26,7 +37,9 @@ import { CdkStepper } from '@angular/cdk/stepper';
     FindLanguageFromKeyPipe,
     TranslateDirective,
     CustomStepperComponent,
+    TeacherContactFormComponent,
+    TeacherProfilFormComponent,
   ],
-  declarations: [CustomStepperComponent],
+  declarations: [CustomStepperComponent, TeacherContactFormComponent, TeacherProfilFormComponent],
 })
 export default class SharedModule {}

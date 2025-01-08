@@ -1,0 +1,28 @@
+<form [formGroup]="profilForm" class="needs-validation" novalidate>
+  <div class="row g-3">
+    <div class="col-md-12">
+      <label for="Profession" class="form-label">Profession</label>
+      <select id="Profession" class="form-select" formControlName="Profession">
+        <option value="">Choisir...</option>
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+      </select>
+    </div>
+    <div class="col-md-12">
+      <label for="educationLevel" class="form-label">Niveau d'étude</label>
+      <select id="educationLevel" class="form-select" formControlName="educationLevel">
+        <option value="">Choisir...</option>
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+      </select>
+    </div>
+    <div class="col-md-12">
+      <label for="speciality" class="form-label">Spécialité</label>
+      <select id="speciality" class="form-select" formControlName="speciality">
+        <option value="">Choisir...</option>
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+      </select>
+    </div>
+  </div>
+</form>

@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'jhi-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss'],
+  selector: 'jhi-teacher-contact-form',
+  templateUrl: './teacher-contact-form.component.html',
+  styleUrls: ['./teacher-contact-form.component.scss'],
 })
-export class RegistrationComponent {
+export class TeacherContactFormComponent {
   contactForm: FormGroup;
-  profilForm: FormGroup;
   profileImageUrl: string | ArrayBuffer | null = null;
   defaultImage = 'https://via.placeholder.com/150?text=Photo+de+profil';
 
@@ -25,19 +24,6 @@ export class RegistrationComponent {
       postalCode: ['', [Validators.required]],
       introduction: ['', [Validators.required]],
     });
-
-    this.profilForm = fb.group({
-      profession: ['', [Validators.required]],
-      educationLevel: ['', [Validators.required]],
-      speciality: ['', [Validators.required]],
-    });
-  }
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      alert('Formulaire soumis avec succès !');
-    }
   }
 
   onProfileImageChange(event: Event): void {

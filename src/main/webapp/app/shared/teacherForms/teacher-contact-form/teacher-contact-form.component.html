@@ -1,0 +1,60 @@
+<form [formGroup]="contactForm" class="needs-validation" novalidate>
+  <div class="row g-3">
+    <div class="profile-image-section text-center mb-3">
+      <div class="profile-image-wrapper">
+        <img [src]="profileImageUrl || defaultImage" alt="Profile Image" class="profile-image" />
+        <label for="profileImageInput" class="upload-label">
+          <fa-icon icon="camera" class="camera"></fa-icon>
+          <input type="file" id="profileImageInput" accept="image/*" (change)="onProfileImageChange($event)" hidden />
+        </label>
+      </div>
+      <p class="text-muted mt-2">Cliquez sur l'image pour la modifier</p>
+    </div>
+    <div class="col-md-12">
+      <label for="gender" class="form-label">Genre</label>
+      <select id="gender" class="form-select" formControlName="gender" required>
+        <option value="">Choisir...</option>
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="firstName" class="form-label">Prénom</label>
+      <input type="text" id="firstName" class="form-control" formControlName="firstName" />
+    </div>
+    <div class="col-md-6">
+      <label for="lastName" class="form-label">Nom</label>
+      <input type="text" id="lastName" class="form-control" />
+    </div>
+    <div class="col-12">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" id="email" class="form-control" formControlName="email" />
+    </div>
+
+    <div class="col-12">
+      <label for="telephone" class="form-label">Téléphone</label>
+      <input type="text" id="telephone" class="form-control" formControlName="telephone" />
+    </div>
+    <div class="col-12">
+      <label for="birthdate" class="form-label">Date de naissance</label>
+      <input type="date" id="birthdate" class="form-control" formControlName="birthdate" />
+    </div>
+    <div class="col-12">
+      <label for="adresse" class="form-label">Adresse</label>
+      <input type="text" id="adresse" class="form-control" formControlName="adresse" />
+    </div>
+    <div class="col-md-6">
+      <label for="town" class="form-label">Ville</label>
+      <input type="text" id="town" class="form-control" formControlName="town" />
+    </div>
+    <div class="col-md-6">
+      <label for="postalCode" class="form-label">Code postal</label>
+      <input type="text" id="postalCode" class="form-control" formControlName="postalCode" />
+    </div>
+
+    <div class="col-12">
+      <label for="introduction" class="form-label">Introduction</label>
+      <textarea id="introduction" class="form-control" formControlName="introduction" rows="5" placeholder="Présentez-vous"></textarea>
+    </div>
+  </div>
+</form>

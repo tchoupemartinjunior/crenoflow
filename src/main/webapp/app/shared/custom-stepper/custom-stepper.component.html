@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container mt-4">
   <!-- Stepper Header -->
-  <div class="stepper d-flex justify-content-between align-items-center mb-5">
+  <div class="stepper d-flex justify-content-between my-3">
     <!-- <div class="step completed">
         <div class="step-circle">1</div>
         <p class="step-label">Information</p>
@@ -12,32 +12,15 @@
       </div> -->
 
     <ng-container *ngFor="let step of steps; let i = index">
-      <div class="step" (click)="onClick(i)">
+      <div class="step" [ngClass]="{ active: selectedIndex === i, inactive: selectedIndex !== i }">
         <div class="step-circle">{{ i }}</div>
         <p class="step-label">{{ step.label }}</p>
       </div>
       <div class="step-line" *ngIf="i < steps.length - 1"></div>
     </ng-container>
-    <div *ngIf="selected">
-      <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
-    </div>
   </div>
 
-  <!-- Stepper Content -->
-  <div class="stepper-content">
-    <div class="step-pane active">
-      <h3>Step 2: Contact</h3>
-      <form>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email" />
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Phone number</label>
-          <input type="tel" class="form-control" id="phone" placeholder="Enter your phone" />
-        </div>
-        <button type="button" class="btn btn-primary">Next</button>
-      </form>
-    </div>
+  <div *ngIf="selected" class="col-md-8 mx-auto mt-2 shadow p-5 pt-2 bg-white rounded">
+    <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
   </div>
 </div>
