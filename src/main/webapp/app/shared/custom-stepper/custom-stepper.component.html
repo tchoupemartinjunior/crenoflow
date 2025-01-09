@@ -1,16 +1,5 @@
 <div class="container mt-4">
-  <!-- Stepper Header -->
   <div class="stepper d-flex justify-content-between my-3">
-    <!-- <div class="step completed">
-        <div class="step-circle">1</div>
-        <p class="step-label">Information</p>
-      </div>
-      <div class="step-line completed"></div>
-      <div class="step active">
-        <div class="step-circle">2</div>
-        <p class="step-label">Contact</p>
-      </div> -->
-
     <ng-container *ngFor="let step of steps; let i = index">
       <div class="step" [ngClass]="{ active: selectedIndex === i, inactive: selectedIndex !== i }">
         <div class="step-circle">{{ i }}</div>
@@ -22,5 +11,9 @@
 
   <div *ngIf="selected" class="col-md-8 mx-auto mt-2 shadow p-5 pt-2 bg-white rounded">
     <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+    <div class="mt-4 d-flex" [ngClass]="{ 'justify-content-between': selectedIndex > 0, 'justify-content-end': selectedIndex === 0 }">
+      <button *ngIf="selectedIndex > 0" class="btn btn-outline-secondary" (click)="previousStep()">Précédent</button>
+      <button type="submit" class="btn btn-primary" (click)="nextStep()">Suivant</button>
+    </div>
   </div>
 </div>

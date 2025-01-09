@@ -13,6 +13,7 @@ import { CdkStepper } from '@angular/cdk/stepper';
 import { TeacherContactFormComponent } from './teacherForms/teacher-contact-form/teacher-contact-form.component';
 import { TeacherProfilFormComponent } from './teacherForms/teacher-profil-form/teacher-profil-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TeacherSubjectsFormComponent } from './teacherForms/teacher-subjects-form/teacher-subjects-form.component';
 
 /**
  * Application wide Module
@@ -40,6 +41,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     TeacherContactFormComponent,
     TeacherProfilFormComponent,
   ],
-  declarations: [CustomStepperComponent, TeacherContactFormComponent, TeacherProfilFormComponent],
+  declarations: [CustomStepperComponent, TeacherContactFormComponent, TeacherProfilFormComponent, TeacherSubjectsFormComponent],
 })
 export default class SharedModule {}

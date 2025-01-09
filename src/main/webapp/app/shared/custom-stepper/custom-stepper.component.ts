@@ -13,4 +13,15 @@ export class CustomStepperComponent extends CdkStepper {
   onClick(index: number): void {
     this.selectedIndex = index;
   }
+  nextStep() {
+    if (this.selectedIndex < this.steps.length - 1) {
+      this.selectedIndex++;
+    }
+  }
+
+  previousStep() {
+    if (this.selectedIndex > 0) {
+      this.selectedIndex--;
+    }
+  }
 }
