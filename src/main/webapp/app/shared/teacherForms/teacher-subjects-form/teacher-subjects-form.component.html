@@ -1,1 +1,14 @@
-<p>teacher-subjects-form works!</p>
+<h2 class="h3 mb-2">Choix des matières</h2>
+<div class="container-fluid d-flex justify-content-start">
+  <div class="row row-cols-md-3">
+    <label class="col g-3 checkbox-wrapper" *ngFor="let option of options">
+      <input type="checkbox" class="form-control checkbox-input" name="checkboxName" (change)="onCheckboxChange($event, 'optionValue')" />
+      <span class="checkbox-tile">
+        <span class="checkbox-label">option</span>
+        <span class="checkbox-icon">
+          <fa-icon icon="check"></fa-icon>
+        </span>
+      </span>
+    </label>
+  </div>
+</div>

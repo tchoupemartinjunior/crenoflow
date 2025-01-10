@@ -40,6 +40,7 @@ import { TeacherSubjectsFormComponent } from './teacherForms/teacher-subjects-fo
     CustomStepperComponent,
     TeacherContactFormComponent,
     TeacherProfilFormComponent,
+    TeacherSubjectsFormComponent,
   ],
   declarations: [CustomStepperComponent, TeacherContactFormComponent, TeacherProfilFormComponent, TeacherSubjectsFormComponent],
 })

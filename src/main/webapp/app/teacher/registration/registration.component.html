@@ -5,7 +5,10 @@
 <div class="container pb-5">
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
     <jhi-custom-stepper [linearModeSelected]="false" #jhiCustomStepper>
-      <cdk-step [label]="'Matières'"> </cdk-step>
+      <cdk-step [label]="'Matières'">
+        <jhi-teacher-subjects-form></jhi-teacher-subjects-form>
+      </cdk-step>
+
       <cdk-step [label]="'Niveau'"> </cdk-step>
       <cdk-step [label]="'Informations personnelles'">
         <jhi-teacher-contact-form></jhi-teacher-contact-form>
