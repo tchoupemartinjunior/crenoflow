@@ -10,6 +10,7 @@
       </div>
       <p class="text-muted mt-2">Cliquez sur l'image pour la modifier</p>
     </div>
+
     <div class="col-md-12">
       <label for="gender" class="form-label">Genre</label>
       <select id="gender" class="form-select" formControlName="gender" required>
@@ -17,44 +18,83 @@
         <option value="male">Homme</option>
         <option value="female">Femme</option>
       </select>
+      <div *ngIf="contactForm.controls.gender.touched && contactForm.controls.gender.invalid" class="text-danger">Genre est requis.</div>
     </div>
+
     <div class="col-md-6">
       <label for="firstName" class="form-label">Prénom</label>
-      <input type="text" id="firstName" class="form-control" formControlName="firstName" />
+      <input type="text" id="firstName" class="form-control" formControlName="firstName" required />
+      <div *ngIf="contactForm.controls.firstName.touched && contactForm.controls.firstName.invalid" class="text-danger">
+        <span *ngIf="contactForm.controls.firstName.errors?.required">Prénom est requis.</span>
+        <span *ngIf="contactForm.controls.firstName.errors?.minlength"> Prénom doit contenir au moins 2 caractères. </span>
+      </div>
     </div>
+
     <div class="col-md-6">
       <label for="lastName" class="form-label">Nom</label>
-      <input type="text" id="lastName" class="form-control" />
+      <input type="text" id="lastName" class="form-control" formControlName="lastName" required />
+      <div *ngIf="contactForm.controls.lastName.touched && contactForm.controls.lastName.invalid" class="text-danger">
+        <span *ngIf="contactForm.controls.lastName.errors?.required">Nom est requis.</span>
+        <span *ngIf="contactForm.controls.lastName.errors?.minlength"> Nom doit contenir au moins 2 caractères. </span>
+      </div>
     </div>
+
     <div class="col-12">
       <label for="email" class="form-label">E-mail</label>
-      <input type="email" id="email" class="form-control" formControlName="email" />
+      <input type="email" id="email" class="form-control" formControlName="email" required />
+      <div *ngIf="contactForm.controls.email.touched && contactForm.controls.email.invalid" class="text-danger">
+        <span *ngIf="contactForm.controls.email.errors?.required">E-mail est requis.</span>
+        <span *ngIf="contactForm.controls.email.errors?.email">E-mail n'est pas valide.</span>
+      </div>
     </div>
 
     <div class="col-12">
       <label for="telephone" class="form-label">Téléphone</label>
-      <input type="text" id="telephone" class="form-control" formControlName="telephone" />
+      <input type="text" id="telephone" class="form-control" formControlName="telephone" required />
+      <div *ngIf="contactForm.controls.telephone.touched && contactForm.controls.telephone.invalid" class="text-danger">
+        <span *ngIf="contactForm.controls.telephone.errors?.required">Téléphone est requis.</span>
+        <span *ngIf="contactForm.controls.telephone.errors?.pattern">Numéro de téléphone invalide.</span>
+      </div>
     </div>
+
     <div class="col-12">
       <label for="birthdate" class="form-label">Date de naissance</label>
-      <input type="date" id="birthdate" class="form-control" formControlName="birthdate" />
+      <input type="date" id="birthdate" class="form-control" formControlName="birthdate" required />
+      <div *ngIf="contactForm.controls.birthdate.touched && contactForm.controls.birthdate.invalid" class="text-danger">
+        Date de naissance est requise.
+      </div>
     </div>
+
     <div class="col-12">
       <label for="adresse" class="form-label">Adresse</label>
-      <input type="text" id="adresse" class="form-control" formControlName="adresse" />
+      <input type="text" id="adresse" class="form-control" formControlName="adresse" required />
+      <div *ngIf="contactForm.controls.adresse.touched && contactForm.controls.adresse.invalid" class="text-danger">
+        Adresse est requise.
+      </div>
     </div>
+
     <div class="col-md-6">
       <label for="town" class="form-label">Ville</label>
-      <input type="text" id="town" class="form-control" formControlName="town" />
+      <input type="text" id="town" class="form-control" formControlName="town" required />
+      <div *ngIf="contactForm.controls.town.touched && contactForm.controls.town.invalid" class="text-danger">Ville est requise.</div>
     </div>
+
     <div class="col-md-6">
       <label for="postalCode" class="form-label">Code postal</label>
-      <input type="text" id="postalCode" class="form-control" formControlName="postalCode" />
+      <input type="text" id="postalCode" class="form-control" formControlName="postalCode" required />
+      <div *ngIf="contactForm.controls.postalCode.touched && contactForm.controls.postalCode.invalid" class="text-danger">
+        <span *ngIf="contactForm.controls.postalCode.errors?.required">Code postal est requis.</span>
+        <span *ngIf="contactForm.controls.postalCode.errors?.pattern">Code postal invalide.</span>
+      </div>
     </div>
 
     <div class="col-12">
       <label for="introduction" class="form-label">Introduction</label>
-      <textarea id="introduction" class="form-control" formControlName="introduction" rows="5" placeholder="Présentez-vous"></textarea>
+      <textarea id="introduction" class="form-control" formControlName="introduction" rows="5" required></textarea>
+      <div *ngIf="contactForm.controls.introduction.touched && contactForm.controls.introduction.invalid" class="text-danger">
+        <span *ngIf="contactForm.controls.introduction.errors?.required">Introduction est requise.</span>
+        <span *ngIf="contactForm.controls.introduction.errors?.maxlength"> Introduction ne doit pas dépasser 500 caractères. </span>
+      </div>
     </div>
   </div>
 </form>

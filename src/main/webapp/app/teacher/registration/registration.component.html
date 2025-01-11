@@ -2,21 +2,19 @@
   <h1 class="banner-title h3">Devenir Enseignant</h1>
   <p>Veuillez compléter votre profil</p>
 </div>
-<div class="container pb-5">
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-    <jhi-custom-stepper [linearModeSelected]="false" #jhiCustomStepper>
-      <cdk-step [label]="'Matières'">
+<div class="pb-5">
+  <jhi-custom-stepper [linearModeSelected]="false" #jhiCustomStepper>
+    <!-- <cdk-step [label]="'Matières'">
         <jhi-teacher-subjects-form></jhi-teacher-subjects-form>
       </cdk-step>
       <cdk-step [label]="'Niveau'">
         <jhi-subjects-level></jhi-subjects-level>
-      </cdk-step>
-      <cdk-step [label]="'Informations personnelles'">
-        <jhi-teacher-contact-form></jhi-teacher-contact-form>
-      </cdk-step>
-      <cdk-step [label]="'Profil'">
-        <jhi-teacher-profil-form></jhi-teacher-profil-form>
-      </cdk-step>
-    </jhi-custom-stepper>
-  </form>
+      </cdk-step> -->
+    <cdk-step [label]="'Informations personnelles'" [state]="isValid">
+      <jhi-teacher-contact-form></jhi-teacher-contact-form>
+    </cdk-step>
+    <cdk-step [label]="'Profil'">
+      <jhi-teacher-profil-form></jhi-teacher-profil-form>
+    </cdk-step>
+  </jhi-custom-stepper>
 </div>

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomStepperComponent } from '../../shared/custom-stepper/custom-stepper.component';
+import TeacherSubjectsFormComponent from '../../shared/shared.module';
+import { StepState } from '@angular/cdk/stepper';
+import { TeacherRegistrationServiceService } from './teacher-registration-service.service';
 
 @Component({
   selector: 'jhi-registration',
@@ -7,47 +11,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  contactForm: FormGroup;
-  profilForm: FormGroup;
-  profileImageUrl: string | ArrayBuffer | null = null;
-  defaultImage = 'https://via.placeholder.com/150?text=Photo+de+profil';
+  isValid: StepState = 'edit';
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = fb.group({
-      gender: ['', [Validators.required]],
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      telephone: ['', [Validators.required]],
-      birthdate: ['', [Validators.required]],
-      adresse: ['', [Validators.required]],
-      town: ['', [Validators.required]],
-      postalCode: ['', [Validators.required]],
-      introduction: ['', [Validators.required]],
+  constructor(
+    private fb: FormBuilder,
+    private registrationService: TeacherRegistrationServiceService,
+  ) {}
+
+  ngOnInit(): void {
+    this.registrationService.teacherContactForm$.subscribe(form => {
+      this.isValid = form?.valid ? 'done' : 'edit';
+      console.log('this.isValid ', this.isValid);
     });
-
-    this.profilForm = fb.group({
-      profession: ['', [Validators.required]],
-      educationLevel: ['', [Validators.required]],
-      speciality: ['', [Validators.required]],
-    });
-  }
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      alert('Formulaire soumis avec succès !');
-    }
-  }
-
-  onProfileImageChange(event: Event): void {
-    const fileInput = event.target as HTMLInputElement;
-    if (fileInput.files && fileInput.files[0]) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.profileImageUrl = reader.result;
-      };
-      reader.readAsDataURL(fileInput.files[0]);
-    }
   }
 }

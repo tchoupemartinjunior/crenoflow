@@ -8,6 +8,9 @@ import { Component, Input } from '@angular/core';
   providers: [{ provide: CdkStepper, useExisting: CustomStepperComponent }],
 })
 export class CustomStepperComponent extends CdkStepper {
+  get disabled(): boolean {
+    return this.selected?.state !== 'done';
+  }
   @Input() linearModeSelected = true;
 
   onClick(index: number): void {
