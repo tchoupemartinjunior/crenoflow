@@ -1,0 +1,23 @@
+<h2 class="h3 mb-2">Choix du niveau</h2>
+<div [formGroup]="cyclesForm" class="container-fluid d-flex justify-content-start">
+  <ol class="row row-cols-md-1">
+    <li class="row" *ngFor="let matiere of matieres">
+      <span class="mt-2 mb-0 fw-bold">{{ matiere }}</span>
+      <label class="col col-lg-4 g-2 g-md-3" *ngFor="let cycle of cycles">
+        <input
+          type="checkbox"
+          class="form-control checkbox-input"
+          name="checkboxName"
+          [checked]="cyclesForm.get('selectedCycles')?.value.includes(cycle)"
+          (change)="onCheckboxChange($event, cycle)"
+        />
+        <span class="checkbox-tile">
+          <span class="checkbox-label">{{ cycle.label }}</span>
+          <span class="checkbox-icon">
+            <fa-icon icon="check"></fa-icon>
+          </span>
+        </span>
+      </label>
+    </li>
+  </ol>
+</div>

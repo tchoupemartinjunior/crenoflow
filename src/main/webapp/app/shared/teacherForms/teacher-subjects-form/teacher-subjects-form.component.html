@@ -1,10 +1,16 @@
 <h2 class="h3 mb-2">Choix des matières</h2>
-<div class="container-fluid d-flex justify-content-start">
-  <div class="row row-cols-md-3">
-    <label class="col g-3 checkbox-wrapper" *ngFor="let option of options">
-      <input type="checkbox" class="form-control checkbox-input" name="checkboxName" (change)="onCheckboxChange($event, 'optionValue')" />
+<div [formGroup]="subjectsForm" class="container-fluid d-flex justify-content-start">
+  <div class="row row-cols-lg-3">
+    <label class="col g-3 checkbox-wrapper" *ngFor="let subject of subjects">
+      <input
+        type="checkbox"
+        class="form-control checkbox-input"
+        name="checkboxName"
+        [checked]="subjectsForm.get('selectedSubjects')?.value.includes(subject)"
+        (change)="onCheckboxChange($event, subject)"
+      />
       <span class="checkbox-tile">
-        <span class="checkbox-label">option</span>
+        <span class="checkbox-label">{{ subject.label }}</span>
         <span class="checkbox-icon">
           <fa-icon icon="check"></fa-icon>
         </span>

@@ -14,6 +14,7 @@ import { TeacherContactFormComponent } from './teacherForms/teacher-contact-form
 import { TeacherProfilFormComponent } from './teacherForms/teacher-profil-form/teacher-profil-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TeacherSubjectsFormComponent } from './teacherForms/teacher-subjects-form/teacher-subjects-form.component';
+import { SubjectsLevelComponent } from './teacherForms/subjects-level/subjects-level.component';
 
 /**
  * Application wide Module
@@ -41,7 +42,14 @@ import { TeacherSubjectsFormComponent } from './teacherForms/teacher-subjects-fo
     TeacherContactFormComponent,
     TeacherProfilFormComponent,
     TeacherSubjectsFormComponent,
+    SubjectsLevelComponent,
   ],
-  declarations: [CustomStepperComponent, TeacherContactFormComponent, TeacherProfilFormComponent, TeacherSubjectsFormComponent],
+  declarations: [
+    CustomStepperComponent,
+    TeacherContactFormComponent,
+    TeacherProfilFormComponent,
+    TeacherSubjectsFormComponent,
+    SubjectsLevelComponent,
+  ],
 })
 export default class SharedModule {}
