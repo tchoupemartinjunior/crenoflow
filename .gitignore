@@ -116,6 +116,7 @@ Desktop.ini
 /bin/
 /deploy/
 /keycloak-21.1.2/
+/realm-config/
 
 ######################
 # Logs
