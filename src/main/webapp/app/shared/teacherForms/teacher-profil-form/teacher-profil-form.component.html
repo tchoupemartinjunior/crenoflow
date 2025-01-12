@@ -2,27 +2,40 @@
   <div class="row g-3">
     <div class="col-md-12">
       <label for="Profession" class="form-label">Profession</label>
-      <select id="Profession" class="form-select" formControlName="Profession">
+      <select id="Profession" class="form-select" formControlName="profession">
         <option value="">Choisir...</option>
-        <option value="male">Homme</option>
-        <option value="female">Femme</option>
+        <option value="male">Etudiant</option>
+        <option value="female">Salarié</option>
       </select>
+      <div *ngIf="getFormControl('profession').invalid && getFormControl('profession').touched" class="text-danger">
+        Profession is required.
+      </div>
     </div>
+
     <div class="col-md-12">
       <label for="educationLevel" class="form-label">Niveau d'étude</label>
       <select id="educationLevel" class="form-select" formControlName="educationLevel">
         <option value="">Choisir...</option>
-        <option value="male">Homme</option>
-        <option value="female">Femme</option>
+        <option value="highschool">High School</option>
+        <option value="undergraduate">Undergraduate</option>
+        <option value="graduate">Graduate</option>
       </select>
+      <div *ngIf="getFormControl('educationLevel').invalid && getFormControl('educationLevel').touched" class="text-danger">
+        Niveau d'étude is required.
+      </div>
     </div>
+
     <div class="col-md-12">
       <label for="speciality" class="form-label">Spécialité</label>
       <select id="speciality" class="form-select" formControlName="speciality">
         <option value="">Choisir...</option>
-        <option value="male">Homme</option>
-        <option value="female">Femme</option>
+        <option value="science">Science</option>
+        <option value="arts">Arts</option>
+        <option value="engineering">Engineering</option>
       </select>
+      <div *ngIf="getFormControl('speciality').invalid && getFormControl('speciality').touched" class="text-danger">
+        Spécialité is required.
+      </div>
     </div>
   </div>
 </form>

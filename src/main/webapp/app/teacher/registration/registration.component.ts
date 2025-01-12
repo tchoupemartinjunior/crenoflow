@@ -4,6 +4,7 @@ import { CustomStepperComponent } from '../../shared/custom-stepper/custom-stepp
 import TeacherSubjectsFormComponent from '../../shared/shared.module';
 import { StepState } from '@angular/cdk/stepper';
 import { TeacherRegistrationServiceService } from './teacher-registration-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'jhi-registration',
@@ -11,7 +12,9 @@ import { TeacherRegistrationServiceService } from './teacher-registration-servic
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  isValid: StepState = 'edit';
+  isValidContactForm: StepState = 'edit';
+  isValidProfilForm: StepState = 'edit';
+  isValidSubjectsForm: StepState = 'edit';
 
   constructor(
     private fb: FormBuilder,
@@ -19,9 +22,22 @@ export class RegistrationComponent {
   ) {}
 
   ngOnInit(): void {
-    this.registrationService.teacherContactForm$.subscribe(form => {
-      this.isValid = form?.valid ? 'done' : 'edit';
-      console.log('this.isValid ', this.isValid);
+    this.subscribeToFormValidation(this.registrationService.teacherContactForm$, 'teacherContactForm');
+    this.subscribeToFormValidation(this.registrationService.teacherProfilForm$, 'teacherProfilForm');
+    this.subscribeToFormValidation(this.registrationService.teacherSubjectsForm$, 'teacherSubjectsForm');
+  }
+
+  private subscribeToFormValidation(form$: Observable<FormGroup | null>, formName: string): void {
+    form$.subscribe(form => {
+      const isValid = form?.valid ? 'done' : 'edit';
+      if (formName === 'teacherContactForm') {
+        this.isValidContactForm = isValid;
+      } else if (formName === 'teacherProfilForm') {
+        this.isValidProfilForm = isValid;
+      } else if (formName === 'teacherSubjectsForm') {
+        this.isValidSubjectsForm = isValid;
+      }
+      console.log(`${formName} isValid:`, isValid);
     });
   }
 }
