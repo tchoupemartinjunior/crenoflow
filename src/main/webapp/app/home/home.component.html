@@ -1,23 +1,67 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="page-banner">
-      <h1 class="banner-title mb-3 h2">Trouver un Enseignant</h1>
-      <form class="d-flex justify-content-center">
-        <div class="bg-white p-3 border d-flex rounded mb-5 col-12 col-md-8 home-search-box">
-          <input type="text" class="form-control" id="searchTeacherControl" placeholder="Rechercher une matière" />
+    <!-- Hero Section -->
+    <div class="page-banner position-relative">
+      <h1 class="banner-title mb-3">Trouver un Enseignant</h1>
+      <form class="d-flex justify-content-center w-100">
+        <div class="bg-white display-2 shadow p-3 border d-flex rounded col-12 col-md-8 home-search-box">
+          <input type="text" class="form-control me-2 rounded" id="searchTeacherControl" placeholder="Rechercher une matière" />
           <button class="btn btn-primary">Rechercher</button>
         </div>
       </form>
     </div>
 
+    <!-- Section 1: Welcome Section -->
     <div class="col-12 bg-light home-section">
-      <p>Bienvenue {{ account?.firstName }} {{ account?.lastName }} !</p>
+      <div class="text-center">
+        <h2 class="mb- text-primary fw-bold">Bienvenue sur Crenoflow</h2>
+        <p>
+          Chez Crenoflow, nous croyons en l'importance de l'éducation pour tous. Trouvez rapidement des enseignants qualifiés près de chez
+          vous ou en ligne pour aider vos enfants à atteindre leurs objectifs scolaires.
+        </p>
+      </div>
     </div>
+
+    <!-- Section 2: Features -->
     <div class="col-12 bg-white home-section">
-      <p>Section 3</p>
+      <div class="text-center">
+        <h2 class="mb-4">Pourquoi Choisir Crenoflow ?</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4">
+          <div class="icon-card shadow rounded">
+            <img src="https://via.placeholder.com/50" alt="Icon 1" />
+            <h5>Facilité d'Utilisation</h5>
+            <p>Notre plateforme intuitive permet aux parents et aux enseignants de se connecter rapidement.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="icon-card shadow rounded">
+            <img src="https://via.placeholder.com/50" alt="Icon 2" />
+            <h5>Large Gamme de Matières</h5>
+            <p>Des mathématiques à l'art, trouvez des enseignants spécialisés dans toutes les matières.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="icon-card shadow rounded">
+            <img src="https://via.placeholder.com/50" alt="Icon 3" />
+            <h5>Flexibilité Totale</h5>
+            <p>Réservez des cours en ligne ou en présentiel, selon vos besoins.</p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Section 3: Call to Action -->
     <div class="col-12 bg-dark home-section text-white">
-      <p>Section 4</p>
+      <div class="text-center">
+        <h2 class="mb-4">Rejoignez-Nous Aujourd'hui !</h2>
+        <p>
+          Inscrivez-vous pour accéder à une communauté d'apprentissage dédiée à l'excellence. Que vous soyez parent ou enseignant, commencez
+          dès maintenant.
+        </p>
+        <a href="/register" class="btn btn-primary">Créer un Compte</a>
+      </div>
     </div>
   </div>
 </div>

@@ -1,42 +1,81 @@
-/* ==========================================================================
-Main page styles
-========================================================================== */
-
-.hipster {
-  display: inline-block;
-  width: 347px;
-  height: 497px;
-  background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
-  background-size: contain;
-}
-
 .page-banner {
-  display: block;
-  width: 100%;
-  height: 15vh;
-  color: white;
+  background: url('./../../content/images/teach.jpg') no-repeat center center / cover;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  align-items: center;
-  z-index: 2;
+  color: #fff;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
 
-  .banner-title {
-    font-weight: bold;
+.page-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(23, 0, 128, 0.7);
+  z-index: -1;
+}
+
+.home-search-box {
+  max-width: 100%;
+  input {
+    height: 3rem;
+    font-size: 1.2rem;
   }
-
-  .home-search-box {
-    box-shadow: 0 2px 2px 2px rgb(194, 194, 194);
+  button {
+    font-size: 1.2rem;
   }
 }
-.home-section {
-  height: 40vh;
-  width: 100%;
-  align-items: center;
-  display: flex;
-  justify-content: center;
 
-  p {
-    font-size: 18px;
-  }
+.home-section {
+  padding: 60px 15px;
+}
+
+.home-section.bg-light {
+  background-color: #f9f9f9;
+}
+
+.home-section.bg-white {
+  background-color: #fff;
+}
+
+.home-section.bg-dark {
+  background-color: #343a40;
+}
+
+.banner-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.home-section p {
+  font-size: 1.25rem;
+}
+
+.icon-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.icon-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.icon-card h5 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.icon-card p {
+  font-size: 1rem;
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
