@@ -15,6 +15,7 @@ export class RegistrationComponent {
   isValidContactForm: StepState = 'edit';
   isValidProfilForm: StepState = 'edit';
   isValidSubjectsForm: StepState = 'edit';
+  isValidSubjectsLevelForm: StepState = 'edit';
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +26,7 @@ export class RegistrationComponent {
     this.subscribeToFormValidation(this.registrationService.teacherContactForm$, 'teacherContactForm');
     this.subscribeToFormValidation(this.registrationService.teacherProfilForm$, 'teacherProfilForm');
     this.subscribeToFormValidation(this.registrationService.teacherSubjectsForm$, 'teacherSubjectsForm');
+    this.subscribeToFormValidation(this.registrationService.subjectsLevelForm$, 'subjectsLevelForm');
   }
 
   private subscribeToFormValidation(form$: Observable<FormGroup | null>, formName: string): void {
@@ -36,6 +38,8 @@ export class RegistrationComponent {
         this.isValidProfilForm = isValid;
       } else if (formName === 'teacherSubjectsForm') {
         this.isValidSubjectsForm = isValid;
+      } else if (formName === 'subjectsLevelForm') {
+        this.isValidSubjectsLevelForm = isValid;
       }
       console.log(`${formName} isValid:`, isValid);
     });

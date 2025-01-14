@@ -29,7 +29,7 @@ export class TeacherSubjectsFormComponent implements OnInit {
       this.subjects = response?.body || [];
     });
     this.subjectsForm.statusChanges.subscribe(status => {
-      if ((status = 'VALID')) {
+      if (status === 'VALID') {
         this.registrationService.teacherSubjectsForm.next(this.subjectsForm);
       } else {
         this.registrationService.teacherSubjectsForm.next(null);
@@ -47,6 +47,7 @@ export class TeacherSubjectsFormComponent implements OnInit {
       }
     }
     console.log(this.selectedSubjects);
+    console.log(this.subjectsForm);
   }
 
   get selectedSubjects(): FormArray {

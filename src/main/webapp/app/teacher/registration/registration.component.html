@@ -7,9 +7,9 @@
     <cdk-step [label]="'Matières'" [state]="isValidSubjectsForm">
       <jhi-teacher-subjects-form></jhi-teacher-subjects-form>
     </cdk-step>
-    <!--  <cdk-step [label]="'Niveau'">
-        <jhi-subjects-level></jhi-subjects-level>
-      </cdk-step> -->
+    <cdk-step [label]="'Niveau'" [state]="isValidSubjectsForm">
+      <jhi-subjects-level></jhi-subjects-level>
+    </cdk-step>
     <cdk-step [label]="'Informations personnelles'" [state]="isValidContactForm">
       <jhi-teacher-contact-form></jhi-teacher-contact-form>
     </cdk-step>
