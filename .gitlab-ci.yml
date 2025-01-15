@@ -5,10 +5,8 @@ cache:
   paths:
     - .maven/
 stages:
-  - check
   - build
   - test
-  - analyze
   - package
   - release
   - deploy
