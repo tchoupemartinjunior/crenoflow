@@ -7,9 +7,6 @@ cache:
 stages:
   - build
   - test
-  - analyze
-  - package
-  - release
   - deploy
 before_script:
   - export NG_CLI_ANALYTICS="false"
@@ -21,7 +18,7 @@ variables:
 
 build-backend:
   stage: build
-  image: maven:3.8.8-openjdk-17
+  image: maven:3.8.8-eclipse-temurin-17
   script:
     - ./mvnw clean install -Pdev -DskipTests
   artifacts:
@@ -39,7 +36,7 @@ build-frontend:
       - builds/
 test:
   stage: test
-  image: maven:3.8.8-openjdk-17
+  image: maven:3.8.8-eclipse-temurin-17
   script:
     - ./mvnw test
   allow_failure: false
