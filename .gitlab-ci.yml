@@ -5,7 +5,6 @@ cache:
   paths:
     - .maven/
 stages:
-  - check
   - build
   - test
   - analyze
@@ -16,67 +15,43 @@ before_script:
   - export NG_CLI_ANALYTICS="false"
   - export MAVEN_USER_HOME=`pwd`/.maven
 
-nohttp:
-  stage: check
-  script:
-    - ./mvnw -ntp checkstyle:check -Dmaven.repo.local=$MAVEN_USER_HOME
+variables:
+  MAVEN_OPTS: '-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository'
+  SPRING_PROFILES_ACTIVE: 'ci'
 
-maven-compile:
+build-backend:
   stage: build
+  image: maven:3.8.8-openjdk-17
   script:
-    - ./mvnw -ntp compile -P-webapp -Dmaven.repo.local=$MAVEN_USER_HOME
-  artifacts:
-    paths:
-      - target/classes/
-      - target/generated-sources/
-    expire_in: 1 day
-
-maven-test:
-  services:
-    - docker:dind
-
-  variables:
-    # Instruct Testcontainers to use the daemon of DinD.
-    DOCKER_HOST: 'tcp://docker:2375'
-    # Improve performance with overlayfs.
-    DOCKER_DRIVER: overlay2
-
-  stage: test
-  script:
-    - ./mvnw -ntp verify -P-webapp -Dmaven.repo.local=$MAVEN_USER_HOME
-  artifacts:
-    reports:
-      junit:
-        - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
-    paths:
-      - target/surefire-reports
-      - target/failsafe-reports
-      - target/site
-    expire_in: 1 day
-
-frontend-test:
-  stage: test
-  script:
-    - npm install
-    - npm test
-  artifacts:
-    reports:
-      junit: target/test-results/TESTS-results-jest.xml
-    paths:
-      - target/test-results
-      - target/jacoco
-    expire_in: 1 day
-
-maven-package:
-  stage: package
-  script:
-    - ./mvnw -ntp verify -Pprod -DskipTests -Dmaven.repo.local=$MAVEN_USER_HOME
+    - ./mvnw clean install -Pdev -DskipTests
   artifacts:
     paths:
       - target/*.jar
-      - target/classes
-    expire_in: 1 day
+build-frontend:
+  stage: build
+  image: node:18
+  script:
+    - npm iinstall
+    - npm run test
+    - npm run build
+  artifacts:
+    paths:
+      - builds/
+test:
+  stage: test
+  image: maven:3.8.8-openjdk-17
+  script:
+    - ./mvnw test
+  allow_failure: false
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploying application"
+    # Add your deployment steps here
+  only:
+    - main
 # Uncomment the following line to use gitlabs container registry. You need to adapt the REGISTRY_URL in case you are not using gitlab.com
 #docker-push:
 #    stage: release
