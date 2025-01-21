@@ -31,20 +31,20 @@ export class DataUtils {
   openFile(data: string, contentType: string | null | undefined): void {
     contentType = contentType ?? '';
 
-    const byteCharacters = Buffer.from(data, 'base64').toString('binary');
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], {
-      type: contentType,
-    });
-    const fileURL = window.URL.createObjectURL(blob);
-    const win = window.open(fileURL);
-    win!.onload = function () {
-      URL.revokeObjectURL(fileURL);
-    };
+    // const byteCharacters = Buffer.from(data, 'base64').toString('binary');
+    // const byteNumbers = new Array(byteCharacters.length);
+    // for (let i = 0; i < byteCharacters.length; i++) {
+    //   byteNumbers[i] = byteCharacters.charCodeAt(i);
+    // }
+    // const byteArray = new Uint8Array(byteNumbers);
+    // const blob = new Blob([byteArray], {
+    //   type: contentType,
+    // });
+    // const fileURL = window.URL.createObjectURL(blob);
+    // const win = window.open(fileURL);
+    // win!.onload = function () {
+    //   URL.revokeObjectURL(fileURL);
+    // };
   }
 
   /**
