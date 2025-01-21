@@ -36,18 +36,15 @@
 
 .home-section {
   padding: 60px 15px;
-}
-
-.home-section.bg-light {
-  background-color: #f9f9f9;
-}
-
-.home-section.bg-white {
-  background-color: #fff;
-}
-
-.home-section.bg-dark {
-  background-color: #343a40;
+  &.bg-light {
+    background-color: #f9f9f9;
+  }
+  &.bg-white {
+    background-color: #fff;
+  }
+  &.bg-dark {
+    background-color: #343a40;
+  }
 }
 
 .banner-title {
@@ -60,8 +57,16 @@
 }
 
 .icon-card {
+}
+.home-card {
   text-align: center;
   padding: 20px;
+  box-shadow: 2px 2px 5px $lightGrey;
+  transition: 1s;
+
+  :hover {
+    transform: scale(1.2);
+  }
 }
 
 .icon-card img {
