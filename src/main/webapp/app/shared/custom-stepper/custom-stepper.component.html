@@ -4,7 +4,7 @@
       <div class="step-circle">{{ i }}</div>
       <p class="step-label">{{ step.label }}</p>
     </div>
-    <div class="step-line" *ngIf="i < steps.length - 1"></div>
+    <div class="step-line" [ngClass]="{ completed: selectedIndex > i }" *ngIf="i < steps.length - 1"></div>
   </ng-container>
 </div>
 

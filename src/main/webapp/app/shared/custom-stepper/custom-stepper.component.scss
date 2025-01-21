@@ -36,6 +36,11 @@
   background-color: #ddd;
   position: relative;
   top: 20px;
+
+  &.completed {
+    height: 10px;
+    background-color: $success;
+  }
 }
 
 .step.active .step-circle {
