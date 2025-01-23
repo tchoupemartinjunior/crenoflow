@@ -71,6 +71,7 @@
     "packaging": "jar"
   },
   "dependencies": {
+    "@angular/animations": "^16.2.11",
     "@angular/cdk": "^16.2.14",
     "@angular/common": "16.2.11",
     "@angular/compiler": "16.2.11",
@@ -87,7 +88,9 @@
     "@ngx-translate/core": "15.0.0",
     "@ngx-translate/http-loader": "8.0.0",
     "@popperjs/core": "2.11.8",
+    "angular-calendar": "^0.31.1",
     "bootstrap": "5.3.2",
+    "date-fns": "^4.1.0",
     "dayjs": "1.11.10",
     "ngx-infinite-scroll": "16.0.0",
     "rxjs": "7.8.1",

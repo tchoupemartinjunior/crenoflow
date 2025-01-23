@@ -22,6 +22,7 @@ import MainModule from './layouts/main/main.module';
 import { AppPageTitleStrategy } from './app-page-title-strategy';
 import { TeacherModule } from './teacher/teacher.module';
 import { TeacherRoutingModule } from './teacher/teacher-routing.module';
+import SharedModule from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { TeacherRoutingModule } from './teacher/teacher-routing.module';
     TranslationModule,
     TeacherModule,
     TeacherRoutingModule,
+    SharedModule,
   ],
   providers: [
     Title,
